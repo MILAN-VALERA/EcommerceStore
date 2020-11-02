@@ -1,0 +1,226 @@
+{% extends 'navbar.html' %}
+
+{% block body %}
+
+<div class="container" style="padding-top: 70px;">
+    <div class="row">
+    <div class="col-md-10 ">
+    <form class="form-horizontal" action="/user/userdetail/" enctype="multipart/form-data" method="POST">
+      {% csrf_token %}
+    <fieldset>
+    
+    <!-- Form Name -->
+    <legend>User Dashboard</legend>
+    
+    <!-- Text input-->
+   
+    <input type="hidden" value="old" name="hiddenValue">
+    <input type="hidden" value="{{win.userId}}" name="userId">
+    
+    <div class="form-group">
+      <label class="col-md-4 control-label" for="Name (Full name)">Name (Full name)</label>  
+      <div class="col-md-4">
+     <div class="input-group">
+           <div class="input-group-addon">
+            <i class="fa fa-user">
+            </i>
+          </div>
+           <input id="Name (Full name)" name="userName" value="{{win.userName}}" type="text" placeholder="Name (Full name)" class="form-control input-md">
+          </div>
+    
+        
+      </div>
+    
+      
+    </div>
+    
+ 
+    <!-- Text input-->
+    <div class="form-group">
+      <label class="col-md-4 control-label" for="Date Of Birth">Age</label>  
+      <div class="col-md-4">
+    
+      <div class="input-group">
+           <div class="input-group-addon">
+         <i class="fa fa-birthday-cake"></i>
+           </div>
+
+           <input id="Date Of Birth" name="age" value="{{win.userAge}}" type="text" placeholder="Date Of Birth" class="form-control input-md">
+          </div>        
+      </div>
+    </div>
+    
+    <div class="form-group">
+      <label class="col-md-4 control-label" for="Password">Password</label>  
+      <div class="col-md-4">
+    
+      <div class="input-group">
+           <div class="input-group-addon">
+            <i class="fa fa-key"></i>
+           </div>
+
+           <input id="password" name="password" value="{{win.userPassword}}" type="password" placeholder="Date Of Birth" class="form-control input-md">
+          </div>        
+      </div>
+    </div>
+    
+    
+    <div class="form-group">
+        <label class="col-md-4 control-label col-xs-12" for="Permanent Address">Permanent Address</label>  
+        <div class="col-md-4   input-group" >
+            <div class="input-group-addon">
+                <i class="fa fa-address-card"></i>
+                   
+                  </div>
+        <input id="Permanent Address" value ="{{win.userAddress}}" name="address" type="text" placeholder="District" class="form-control input-md ">
+        </div>   
+        
+      </div>
+      
+    <!-- Text input-->
+    <div class="form-group">
+      <label class="col-md-4 control-label" for="Primary Occupation">Max Amount</label>  
+      <div class="col-md-4">
+      <div class="input-group">
+           <div class="input-group-addon">
+         <i class="fa fa-briefcase"></i>
+            
+           </div>
+          <input id="maxAmount" value ="{{win.userMaxPurchase}}" name="maxpurchase" type="text" placeholder="Max Amount" class="form-control input-md">
+          </div>
+      
+        
+      </div>
+    </div>
+    
+
+    <div class="form-group">
+
+      <label class="col-md-4 control-label" for="card1">Credi Card 1</label>  
+      <div class="col-md-4">
+      <div class="input-group">
+           <div class="input-group-addon">
+         <i class="fa fa-cc-mastercard"></i>
+            
+           </div>
+          <input id="card1" value ="{{win.creditCard_1}}" name="CreditCard1" type="text" placeholder="card1" class="form-control input-md">
+          </div>
+      
+        
+      </div>
+    </div>
+    
+    <div class="form-group">
+
+      <label class="col-md-4 control-label" for="card1">Credi Card 2</label>  
+      <div class="col-md-4">
+      <div class="input-group">
+           <div class="input-group-addon">
+         <i class="fa fa-cc-mastercard"></i>
+            
+           </div>
+          <input id="card2" value ="{{win.creditCard_2}}" name="CreditCard2" type="text" placeholder="card2" class="form-control input-md">
+          </div>
+      
+        
+      </div>
+    </div>
+        
+    <div class="form-group">
+
+      <label class="col-md-4 control-label" for="card1">Credi Card 3</label>  
+      <div class="col-md-4">
+      <div class="input-group">
+           <div class="input-group-addon">
+         <i class="fa fa-cc-mastercard"></i>
+            
+           </div>
+          <input id="card3" value ="{{win.creditCard_3}}" name="CreditCard3" type="text" placeholder="card3" class="form-control input-md">
+          </div>
+      
+        
+      </div>
+    </div>
+          
+    <div class="form-group">
+
+      <label class="col-md-4 control-label" for="card1">Credi Card 4</label>  
+      <div class="col-md-4">
+      <div class="input-group">
+           <div class="input-group-addon">
+         <i class="fa fa-cc-mastercard"></i>
+            
+           </div>
+          <input id="card4" name="CreditCard4" value ="{{win.creditCard_4}}" type="text" placeholder="card4" class="form-control input-md">
+          </div>
+      
+        
+      </div>
+    </div>
+  
+  
+    <div class="form-group">
+
+      <label class="col-md-4 control-label" for="Phone number ">Phone number </label>  
+      <div class="col-md-4">
+      <div class="input-group">
+           <div class="input-group-addon">
+         <i class="fa fa-phone"></i>
+            
+           </div>
+        <input id="Phone number " value ="{{win.userPhone}}" name="phoneNo" type="text" placeholder="Primary Phone number " class="form-control input-md">
+        
+          </div>
+      
+      </div>
+    </div>
+    
+    <!-- Text input-->
+    <div class="form-group">
+
+      <label class="col-md-4 control-label" for="Email Address">Email Address</label>  
+      <div class="col-md-4">
+      <div class="input-group">
+           <div class="input-group-addon">
+         <i class="fa fa-envelope-o"></i>
+            
+           </div>
+        <input id="Email Address" name="useremail" value ="{{win.usermailId}}" type="text" placeholder="Email Address" class="form-control input-md">
+        
+          </div>
+      
+      </div>
+    </div>
+
+
+    <div class="form-group">
+
+
+      <label class="col-md-4 control-label" for="Email Address">pincode</label>  
+      <div class="col-md-4">
+      <div class="input-group">
+           <div class="input-group-addon">
+         <i class="fa fa-barcode"></i>
+            
+           </div>
+        <input id="pincode" name="pincode" value ="{{win.pincode}}" type="text" placeholder="Email Address" class="form-control input-md">
+        
+          </div>
+      
+      </div>
+    </div>
+    
+    <div class="form-group">
+
+      <label class="col-md-4 control-label" ></label>  
+      <div class="col-md-4">
+      <button type="submit" class="btn btn-success"><span class="glyphicon glyphicon-thumbs-up"></span> Submit</a>
+              
+      </div>
+    </div>
+    
+    </fieldset>
+    </form>
+    </div>
+    
+{%  endblock %}

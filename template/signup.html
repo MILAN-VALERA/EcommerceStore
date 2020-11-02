@@ -1,0 +1,110 @@
+{% extends "navbar.html" %}
+{% block body %}
+
+<div class="container bg-dark text-warning">
+ 
+<form class="my-2" action="/user/userdetail/" method="POST">
+    {% csrf_token %}
+    <input type="hidden" value="new" name="hiddenValue">
+        <div class="form-group ">
+            <label for="userName">
+               <h5> User Name: </h5>
+                <input type="text" name="username" class="form-control" id="username" required>
+            </label>
+        </div>
+        <div class="form-group">
+            <label for="useremail">
+               <h5> Email Id: </h5>
+                <input type="email" name="useremail" class="form-control" id="useremail" required>
+            </label>
+        </div>
+        <div class="form-group">
+        <label for="password">
+                <h5>Password: </h5>
+                <input type="password" name="password" class="form-control" id="userpass" required>
+            </label>
+        </div>
+        <div class="form-group">
+            
+            <label for="Age">
+                <h5>Age: </h5>
+                <input type="text" name="age"   class="form-control" id="age">
+            </label>
+        </div>
+        <div class="form-group">
+            <label for="phone">
+                <h5>Phone Number </h5>
+                <input type="text" name="phoneNo" class="form-control" maxlength="10" id="phoneNo">
+            </label>
+        </div>
+        <div class="form-group">
+            <label for="credit">
+                <h5>Credit Card Number 1 </h5>
+                <small>We are taking for security reason</small>
+                <input type="text" name="CreditCard1" maxlength="16" class="form-control" id="CreditCard1" required >        
+            </label>
+        <br>
+            <a class="text-white" id="showCard"  onclick="showCard()">+ Add more card</a>
+            <br class="hideForm d-none">
+            <label for="credit">
+
+                <h5  class="hideForm d-none">Credit Card Number 2 </h5>
+                <input type="text"  name="CreditCard2" maxlength="16" class="hideForm form-control d-none" id="CreditCard2">
+
+            </label>
+            <br class="hideForm d-none">
+            <label for="credit">
+                <h5 class="hideForm d-none">Credit Card Number 3 </h5>
+                
+                <input type="text" name="CreditCard3" maxlength="16" class="hideForm form-control d-none" id="CreditCard3">
+            </label>
+            <br class="hideForm d-none">
+         
+            <label for="credit">
+                <h5 class="hideForm d-none">Credit Card Number 4 </h5>
+                
+                <input type="text" name="CreditCard4" maxlength="16" class="hideForm form-control d-none" id="CreditCard4">
+            </label>
+        </div>
+
+        <div class="form-group">
+            <label for="maxpurchase">
+                <h5>Max Amount To spend</h5>
+                <small>This field is for security only</small>
+                <br>
+                <input type="text" name="maxpurchase" class="form-control" id="maxpurchase" required>
+            </label>
+        </div>
+        
+        <div class="form-group">
+            <label for="Address">
+                <h5>Address</h5>
+                
+                <textarea name="address" class="form-control" id="" cols="40" rows="5"></textarea>
+            </label>
+        </div>
+        <div class="form-group">
+            <label for="picode">
+                <h5>Pincode</h5>
+                <input type="text" name="pincode" class="form-control" id="pincode">
+            </label>
+        </div>
+            <button class="btn btn-primary my-2" type="submit">Submit</button>
+        </form>
+    </div>
+
+
+<script>
+const showCard = () =>{
+    k = document.getElementsByClassName('hideForm')
+    z = document.getElementsByClassName('hideForm').length;
+    for(let i = 0 ; i<z;i++)
+    {
+        k[i].classList.remove('d-none')
+    }
+    document.getElementById('showCard').classList.add('d-none')
+}
+
+</script>
+
+{% endblock %}

@@ -1,0 +1,25 @@
+{% extends "navbar.html"%}
+{% block body %}
+
+<div class="container bg-dark">
+    <h1 class="bg-info text-center text-light">Order Successful</h1>
+    <div class="row">
+        <div class="col-md-6 text-light">
+            <h3 id="titlePro"></h3>
+            <h5 id="amount"></h5>
+        </div>
+        <div class="col-md-6">
+            <img src="" alt="" class="img-thumbnail" id="thumbnail" />
+        </div>
+    </div>
+
+
+</div>
+
+<script>
+    const data =  JSON.parse(localStorage.getItem("productDetails"))
+    document.getElementById("titlePro").innerText = data['productName']
+    document.getElementById("thumbnail").src = `/media/${data['productImage']}`
+    document.getElementById("amount").innerText =`Amount Paid: $ ${data['productPrice']}`
+</script>
+{% endblock %}
