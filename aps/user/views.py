@@ -54,7 +54,7 @@ def userDetail(request):
             credicrad_4 = request.POST['CreditCard4']
                         
 
-            if creditCardAvailabe1(credicrad_1) and creditCardAvailabe2(credicrad_2) and creditCardAvailabe3(credicrad_3) and creditCardAvailabe4(credicrad_4) :
+            if creditCardAvailabe1(credicrad_1) or creditCardAvailabe2(credicrad_2) or creditCardAvailabe3(credicrad_3) or creditCardAvailabe4(credicrad_4) :
                 
                 dataModel = User(userName= uname,userAge=age,userMaxPurchase= maxAmount,createDate=datetime.time(),userPhone=phoneNo,userAddress=address,pincode=pincode,usermailId=useremail,userPassword=password,creditCard_1=credicrad_1,creditCard_2=credicrad_2,creditCard_3=credicrad_3,creditCard_4=credicrad_4)
                 dataModel.save()
